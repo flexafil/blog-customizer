@@ -252,7 +252,7 @@ export const ArticleParamsForm = () => {
 						title='Размер шрифта'
 						name='font-size'
 						options={fontSizeOptions}
-						selected={draft.fontSize!}
+						selected={draft.fontSize || defaultArticleState.fontSizeOption}
 						onChange={(selectedOption) => {
 							setDraft((previousDraft) => ({
 								...previousDraft,

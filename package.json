@@ -4,6 +4,7 @@
 	"main": "index.js",
 	"license": "MIT",
 	"devDependencies": {
+		"@playwright/test": "^1.57.0",
 		"@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
 		"@storybook/addon-essentials": "^8.0.5",
 		"@storybook/addon-interactions": "^8.0.5",
@@ -62,6 +63,7 @@
 	"scripts": {
 		"build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.js --env env=prod",
 		"start": "webpack serve --config webpack/webpack.config.js --env env=dev",
+		"postinstall": "playwright install chromium",
 		"stylelint": "stylelint \"src/**/*.scss\"",
 		"stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
 		"lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
