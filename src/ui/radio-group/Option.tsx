@@ -23,11 +23,8 @@ export const Option = (props: OptionProps) => {
 
 	useEnterSubmit({ onChange, option });
 
-	// data-testid должен совпадать с тем, что ожидают тесты:
-	// radio_radio_item_with_value__<value>
-	const inputId = `radio_radio_item_with_value__${value}`;
-	// выбранным считаем вариант, у которого совпадает value
-	const isChecked = value === selected.value;
+	const inputId = `${groupName}_radio_item_with_value__${value}`;
+	const isChecked = value === selected.title;
 
 	return (
 		<div

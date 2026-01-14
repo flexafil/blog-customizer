@@ -220,101 +220,97 @@ export const ArticleParamsForm = () => {
 				onClick={() => setIsOpen((previousValue) => !previousValue)}
 			/>
 
-			{isOpen && (
-				<aside
-					ref={asideRef}
-					className={clsx(styles.container, {
-						[styles.container_open]: isOpen,
-					})}
-					role='dialog'
-					aria-modal='true'
-					aria-hidden={!isOpen}>
-					<form
-						className={styles.form}
-						onSubmit={handleApply}
-						onReset={handleReset}>
-						<Text as='h2' weight={800} size={31} uppercase>
-							Задайте параметры
-						</Text>
+			<aside
+				ref={asideRef}
+				className={clsx(styles.container, { [styles.container_open]: isOpen })}
+				role='dialog'
+				aria-modal='true'
+				aria-hidden={!isOpen}>
+				<form
+					className={styles.form}
+					onSubmit={handleApply}
+					onReset={handleReset}>
+					<Text as='h2' weight={800} size={31} uppercase>
+						Задайте параметры
+					</Text>
 
-						<Select
-							title='Шрифт'
-							placeholder='Выберите шрифт'
-							options={fontFamilyOptions}
-							selected={draft.fontFamily}
-							onChange={(selectedOption) => {
-								setDraft((previousDraft) => ({
-									...previousDraft,
-									fontFamily: selectedOption,
-								}));
-							}}
-							onClose={() => {}}
-						/>
+					<Select
+						title='Шрифт'
+						placeholder='Выберите шрифт'
+						options={fontFamilyOptions}
+						selected={draft.fontFamily}
+						onChange={(selectedOption) => {
+							setDraft((previousDraft) => ({
+								...previousDraft,
+								fontFamily: selectedOption,
+							}));
+						}}
+						onClose={() => {}}
+					/>
 
-						<RadioGroup
-							title='Размер шрифта'
-							name='font-size'
-							options={fontSizeOptions}
-							selected={draft.fontSize || defaultArticleState.fontSizeOption}
-							onChange={(selectedOption) => {
-								setDraft((previousDraft) => ({
-									...previousDraft,
-									fontSize: selectedOption,
-								}));
-							}}
-						/>
+					<RadioGroup
+						title='Размер шрифта'
+						name='font-size'
+						options={fontSizeOptions}
+						selected={draft.fontSize!}
+						onChange={(selectedOption) => {
+							setDraft((previousDraft) => ({
+								...previousDraft,
+								fontSize: selectedOption,
+							}));
+						}}
+					/>
 
-						<Select
-							title='Цвет шрифта'
-							placeholder='Выберите цвет'
-							options={fontColors}
-							selected={draft.fontColor}
-							onChange={(selectedOption) => {
-								setDraft((previousDraft) => ({
-									...previousDraft,
-									fontColor: selectedOption,
-								}));
-							}}
-							onClose={() => {}}
-						/>
+					<Select
+						title='Цвет шрифта'
+						placeholder='Выберите цвет'
+						options={fontColors}
+						selected={draft.fontColor}
+						onChange={(selectedOption) => {
+							setDraft((previousDraft) => ({
+								...previousDraft,
+								fontColor: selectedOption,
+							}));
+						}}
+						onClose={() => {}}
+					/>
 
-						<Separator />
+					<Separator />
 
-						<Select
-							title='Цвет фона'
-							placeholder='Выберите фон'
-							options={backgroundColors}
-							selected={draft.backgroundColor}
-							onChange={(selectedOption) => {
-								setDraft((previousDraft) => ({
-									...previousDraft,
-									backgroundColor: selectedOption,
-								}));
-							}}
-							onClose={() => {}}
-						/>
+					<Select
+						title='Цвет фона'
+						placeholder='Выберите фон'
+						options={backgroundColors}
+						selected={draft.backgroundColor}
+						onChange={(selectedOption) => {
+							setDraft((previousDraft) => ({
+								...previousDraft,
+								backgroundColor: selectedOption,
+							}));
+						}}
+						onClose={() => {}}
+					/>
 
-						<Select
-							title='Ширина контента'
-							placeholder='Выберите ширину'
-							options={contentWidthArr}
-							selected={draft.contentWidth}
-							onChange={(selectedOption) => {
-								setDraft((previousDraft) => ({
-									...previousDraft,
-									contentWidth: selectedOption,
-								}));
-							}}
-							onClose={() => {}}
-						/>
+					<Select
+						title='Ширина контента'
+						placeholder='Выберите ширину'
+						options={contentWidthArr}
+						selected={draft.contentWidth}
+						onChange={(selectedOption) => {
+							setDraft((previousDraft) => ({
+								...previousDraft,
+								contentWidth: selectedOption,
+							}));
+						}}
+						onClose={() => {}}
+					/>
 
-						<div className={styles.bottomContainer}>
-							<Button title='Сбросить' htmlType='reset' type='clear' />
-							<Button title='Применить' htmlType='submit' type='apply' />
-						</div>
-					</form>
-				</aside>
-			)}
+					<div className={styles.bottomContainer}>
+						<Button title='Сбросить' htmlType='reset' type='clear' />
+						<Button title='Применить' htmlType='submit' type='apply' />
+					</div>
+				</form>
+			</aside>
 		</>
 	);
 };
